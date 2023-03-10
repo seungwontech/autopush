@@ -1,23 +1,17 @@
 def solution(array):
-    count_temp = 0 
-    answer = 0
-    i_value = 0
-    
+    dict_list = {}
     for i in array:
-        count = array.count(i)
-        if i_value == i:
-            continue
-            
-        if count > count_temp:
-            count_temp = count
-            i_value = i
-            
-        elif count == count_temp:
-            if i_value == i:
-                continue
-                
-            answer = -1
-            
-    if answer != -1:
-        answer = i_value
+        dict_list[i] = array.count(i)
+
+    max_value = max(dict_list.values())
+    count = 1
+    for i in dict_list.values():
+        if max_value == i:
+            count = count + 1
+    if count > 2:
+        answer = -1
+    else:
+        for j in dict_list:
+            if max_value == dict_list[j]:
+                answer = j
     return answer
