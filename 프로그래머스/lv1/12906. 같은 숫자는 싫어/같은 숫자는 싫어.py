@@ -6,10 +6,3 @@ def solution(arr):
             sameNum = i
             answer.append(i)
     return answer
-            
-        
-        
-            
-        
-            
-    return answer
