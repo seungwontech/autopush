@@ -1,10 +1,8 @@
 def solution(numlist, n):
     answer = []
     numlist.sort()
-    print(numlist)
     temp = { i:abs(n - i) for i in numlist}
     sorted_dict = sorted(temp.items(), key = lambda item: item[1])
-    print(sorted_dict)
     tempval0 = -1
     tempval1 = -1
     index = -1
