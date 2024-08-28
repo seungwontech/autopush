@@ -7,22 +7,22 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int A = Integer.parseInt(st.nextToken());
-        int B = Integer.parseInt(st.nextToken());
-        int C = Integer.parseInt(st.nextToken());
+        int a = Integer.parseInt(st.nextToken()); // 시
+        int b = Integer.parseInt(st.nextToken()); // 분
+        int c = Integer.parseInt(st.nextToken()); // 초
+        int n = Integer.parseInt(br.readLine());
 
-        int time = Integer.parseInt(br.readLine());
-        B += time / 60;
-        C += time % 60;
+        b += n / 60;
+        c += n % 60;
 
-        B += C / 60;
-        C = C % 60;
+        b += c / 60;
+        c = c % 60;
 
-        A += B / 60;
-        B = B % 60;
+        a += b / 60;
+        b = b % 60;
 
-        A = A % 24;
+        a = a % 24;
 
-        System.out.println(A + " " + B + " " + C);
+        System.out.println(a + " " + b + " " + c);
     }
 }
