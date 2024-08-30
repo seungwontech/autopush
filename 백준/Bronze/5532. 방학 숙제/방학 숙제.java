@@ -5,14 +5,23 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int L = Integer.parseInt(br.readLine()); // 방학 총 일
-        double A = Integer.parseInt(br.readLine()); // 국어 총 페이지
-        double B = Integer.parseInt(br.readLine()); // 수학 총 페이지
-        double C = Integer.parseInt(br.readLine()); // 국어 최대 페이지
-        double D = Integer.parseInt(br.readLine()); // 수학 초대 페이지
-        double aMax = Math.ceil(A/C);
-        double bMax = Math.ceil(B/D);
-        int max = (int) Math.max(aMax,bMax);
-        System.out.println(L - max);
+        int L = Integer.parseInt(br.readLine());
+        int A = Integer.parseInt(br.readLine()); // 국어
+        int B = Integer.parseInt(br.readLine()); // 수학
+        int C = Integer.parseInt(br.readLine()); // 국어 최대
+        int D = Integer.parseInt(br.readLine()); // 수학 최대
+        int bd = B/D;
+        int ac = A/C;
+        if (B%D != 0) {
+            bd++;
+        }
+        if(A%C != 0) {
+            ac++;
+        }
+        if(bd < ac) {
+            System.out.println(L-ac);
+        } else {
+            System.out.println(L-bd);
+        }
     }
 }
