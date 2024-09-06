@@ -11,19 +11,10 @@ public class Main {
         int m = Integer.parseInt(st.nextToken());
         int temp = Integer.parseInt(br.readLine());
 
-        if (temp / 60 > 0) {
-            h += temp / 60;
-            m += temp % 60;
-        } else {
-            m += temp % 60;
-        }
-
+        m += temp;
         if (m > 59) {
-            m = m%60;
-            h++;
-        }
-        if (h > 23) {
-            h = h%24;
+            h = (h + m / 60) % 24;
+            m = m % 60;
         }
         System.out.println(h + " " + m);
     }
