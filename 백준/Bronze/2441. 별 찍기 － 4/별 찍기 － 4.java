@@ -2,16 +2,16 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
 
-        int n = scan.nextInt();
-        char star = '*';
         for (int i = 0; i < n; i++) {
-            for (int k = n - i; k < n; k++) {
-                System.out.print(" ");
-            }
-            for (int j = i; j < n; j++) {
-                System.out.print(star);
+            for(int j = 0; j < n; j++) {
+                if(j >= i) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
             }
             System.out.println("");
         }
