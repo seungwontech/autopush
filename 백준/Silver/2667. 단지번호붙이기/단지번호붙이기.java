@@ -26,40 +26,28 @@ public class Main {
             for (int j = 0; j < n; j++) {
                 if(arr[i][j] == '1' && !visit[i][j]) {
                     apartNum++;
-                    BFS(i,j);
+                    DFS(i,j);
                 }
             }
         }
-        Arrays.sort(apart);
+        Arrays.sort(apart, 1, apartNum + 1);
 
         System.out.println(apartNum);
-        for (int i = 0; i < apart.length; i++) {
-            if(apart[i] == 0) {
-            } else {
-                System.out.println(apart[i]);
-            }
-
+        for (int i = 1; i <= apartNum; i++) {
+            System.out.println(apart[i]);
         }
     }
 
-    public static void BFS(int x, int y){
-        Queue<int[]> qu = new LinkedList<int[]>();
-        qu.add(new int[] { x, y });
+    public static void DFS(int x, int y){
         apart[apartNum]++;
         visit[x][y] = true;
-        while (!qu.isEmpty()) {
-            int curX = qu.peek()[0];
-            int curY = qu.peek()[1];
-            qu.poll();
-            for (int i = 0; i < 4; i++) {
-                int cx = curX + dx[i];
-                int cy = curY + dy[i];
-                if(cx >= 0 && cy >=0 && cx < n && cy < n){
-                    if(!visit[cx][cy] && arr[cx][cy] == '1') {
-                        qu.add(new int[]{cx, cy});
-                        visit[cx][cy] = true;
-                        apart[apartNum]++;
-                    }
+
+        for(int i = 0; i < 4; i++) {
+            int cx = x + dx[i];
+            int cy = y + dy[i];
+            if(cx >= 0 && cy >= 0 && cx < n && cy <n){
+                if(arr[cx][cy] == '1' && !visit[cx][cy]){
+                    DFS(cx, cy);
                 }
             }
         }
